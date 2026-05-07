@@ -1,0 +1,9 @@
+../Middlewares/PICTURE/piclib.c:51:13:piclib_fill_color	5
+../Middlewares/PICTURE/piclib.c:38:6:piclib_draw_hline	4
+../Middlewares/PICTURE/piclib.c:76:6:piclib_init	1
+../Middlewares/PICTURE/piclib.c:105:10:piclib_alpha_blend	1
+../Middlewares/PICTURE/piclib.c:126:6:piclib_ai_draw_init	1
+../Middlewares/PICTURE/piclib.c:154:18:piclib_is_element_ok	4
+../Middlewares/PICTURE/piclib.c:185:9:piclib_ai_load_picfile	11
+../Middlewares/PICTURE/piclib.c:269:7:piclib_mem_malloc	1
+../Middlewares/PICTURE/piclib.c:279:6:piclib_mem_free	1

@@ -1,0 +1,6 @@
+../Application/User/Core/stm32n6xx_hal_msp.c:31:6:HAL_MspInit	1
+../Application/User/Core/stm32n6xx_hal_msp.c:60:6:HAL_TIM_Base_MspInit	2
+../Application/User/Core/stm32n6xx_hal_msp.c:84:6:HAL_TIM_PWM_MspInit	1
+../Application/User/Core/stm32n6xx_hal_msp.c:107:6:HAL_TIM_MspPostInit	2
+../Application/User/Core/stm32n6xx_hal_msp.c:141:6:HAL_TIM_Base_MspDeInit	2
+../Application/User/Core/stm32n6xx_hal_msp.c:162:6:HAL_TIM_PWM_MspDeInit	2

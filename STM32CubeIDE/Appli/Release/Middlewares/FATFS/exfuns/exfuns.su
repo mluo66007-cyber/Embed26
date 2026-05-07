@@ -1,0 +1,8 @@
+../Middlewares/FATFS/exfuns/exfuns.c:60:9:exfuns_init	16	static
+../Middlewares/FATFS/exfuns/exfuns.c:91:9:exfuns_char_upper	0	static
+../Middlewares/FATFS/exfuns/exfuns.c:112:9:exfuns_file_type	32	static
+../Middlewares/FATFS/exfuns/exfuns.c:170:9:exfuns_get_free	24	static
+../Middlewares/FATFS/exfuns/exfuns.c:222:9:exfuns_file_copy	64	static
+../Middlewares/FATFS/exfuns/exfuns.c:313:10:exfuns_get_src_dname	0	static
+../Middlewares/FATFS/exfuns/exfuns.c:337:10:exfuns_get_folder_size	32	static
+../Middlewares/FATFS/exfuns/exfuns.c:437:9:exfuns_folder_copy	72	static

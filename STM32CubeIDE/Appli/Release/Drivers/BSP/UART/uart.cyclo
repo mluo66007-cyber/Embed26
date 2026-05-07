@@ -1,0 +1,3 @@
+../Drivers/BSP/UART/uart.c:40:6:uart_init	1
+../Drivers/BSP/UART/uart.c:58:6:HAL_UART_RxCpltCallback	7
+../Drivers/BSP/UART/uart.c:103:5:__io_putchar	1

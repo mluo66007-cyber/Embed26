@@ -1,0 +1,12 @@
+../Middlewares/PICTURE/tjpgd.c:132:14:alloc_pool	0	static
+../Middlewares/PICTURE/tjpgd.c:282:12:huffext	32	static
+../Middlewares/PICTURE/tjpgd.c:423:12:bitext	32	static
+../Middlewares/PICTURE/tjpgd.c:1275:12:jpeg_out_func_fill	24	static
+../Middlewares/PICTURE/tjpgd.c:1250:15:jpeg_in_func	16	static
+../Middlewares/PICTURE/tjpgd.c:1200:16:jpeg_mallocall	8	static
+../Middlewares/PICTURE/tjpgd.c:1224:13:jpeg_freeall	8	static
+../Middlewares/PICTURE/tjpgd.c:1293:12:jpeg_out_func_point	48	static
+../Middlewares/PICTURE/tjpgd.c:962:9:jd_prepare	88	static
+../Middlewares/PICTURE/tjpgd.c:1118:9:jd_decomp	120	static
+../Middlewares/PICTURE/tjpgd.c:1340:9:jpg_get_size	32	static
+../Middlewares/PICTURE/tjpgd.c:1385:9:jpg_decode	40	static

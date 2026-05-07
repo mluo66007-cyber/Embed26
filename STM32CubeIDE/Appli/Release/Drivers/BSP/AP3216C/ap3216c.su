@@ -1,0 +1,2 @@
+../Drivers/BSP/AP3216C/ap3216c.c:32:9:ap3216c_init	40	static
+../Drivers/BSP/AP3216C/ap3216c.c:56:6:ap3216c_read_data	56	static

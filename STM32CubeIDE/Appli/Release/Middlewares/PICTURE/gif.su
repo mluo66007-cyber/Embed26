@@ -1,0 +1,6 @@
+../Middlewares/PICTURE/gif.c:106:16:gif_readcolortbl	32	static
+../Middlewares/PICTURE/gif.c:217:17:gif_getdatablock	24	static
+../Middlewares/PICTURE/gif.c:306:12:gif_getnextcode	24	static
+../Middlewares/PICTURE/gif.c:136:9:gif_getinfo	24	static
+../Middlewares/PICTURE/gif.c:732:6:gif_quit	0	static
+../Middlewares/PICTURE/gif.c:749:9:gif_decode	136	static

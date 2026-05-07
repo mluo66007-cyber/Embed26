@@ -1,0 +1,12 @@
+../Middlewares/PICTURE/tjpgd.c:132:14:alloc_pool	2
+../Middlewares/PICTURE/tjpgd.c:282:12:huffext	15
+../Middlewares/PICTURE/tjpgd.c:423:12:bitext	8
+../Middlewares/PICTURE/tjpgd.c:1275:12:jpeg_out_func_fill	1
+../Middlewares/PICTURE/tjpgd.c:1250:15:jpeg_in_func	2
+../Middlewares/PICTURE/tjpgd.c:1200:16:jpeg_mallocall	4
+../Middlewares/PICTURE/tjpgd.c:1224:13:jpeg_freeall	1
+../Middlewares/PICTURE/tjpgd.c:1293:12:jpeg_out_func_point	5
+../Middlewares/PICTURE/tjpgd.c:962:9:jd_prepare	73
+../Middlewares/PICTURE/tjpgd.c:1118:9:jd_decomp	55
+../Middlewares/PICTURE/tjpgd.c:1340:9:jpg_get_size	4
+../Middlewares/PICTURE/tjpgd.c:1385:9:jpg_decode	11

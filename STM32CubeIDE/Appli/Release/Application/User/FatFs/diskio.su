@@ -1,0 +1,5 @@
+../Application/User/FatFs/diskio.c:34:9:disk_status	0	static
+../Application/User/FatFs/diskio.c:44:9:disk_initialize	8	static
+../Application/User/FatFs/diskio.c:83:9:disk_read	8	static
+../Application/User/FatFs/diskio.c:123:9:disk_write	8	static
+../Application/User/FatFs/diskio.c:162:9:disk_ioctl	0	static

@@ -1,0 +1,3 @@
+../Middlewares/PICTURE/bmp.c:45:9:stdbmp_decode	29
+../Middlewares/PICTURE/bmp.c:296:9:minibmp_decode	23
+../Middlewares/PICTURE/bmp.c:515:9:bmp_encode	15

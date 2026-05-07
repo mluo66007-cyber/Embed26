@@ -1,0 +1,8 @@
+../Middlewares/FATFS/exfuns/exfuns.c:60:9:exfuns_init	3
+../Middlewares/FATFS/exfuns/exfuns.c:91:9:exfuns_char_upper	2
+../Middlewares/FATFS/exfuns/exfuns.c:112:9:exfuns_file_type	11
+../Middlewares/FATFS/exfuns/exfuns.c:170:9:exfuns_get_free	2
+../Middlewares/FATFS/exfuns/exfuns.c:222:9:exfuns_file_copy	13
+../Middlewares/FATFS/exfuns/exfuns.c:313:10:exfuns_get_src_dname	5
+../Middlewares/FATFS/exfuns/exfuns.c:337:10:exfuns_get_folder_size	9
+../Middlewares/FATFS/exfuns/exfuns.c:437:9:exfuns_folder_copy	13
