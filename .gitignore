@@ -1,0 +1,22 @@
+# STM32 / CubeIDE build outputs
+**/Debug/
+**/Release/
+
+*.o
+*.obj
+*.elf
+*.bin
+*.hex
+*.map
+*.list
+*.lst
+*.d
+*.su
+*.cyclo
+
+# IDE generated settings
+**/.settings/language.settings.xml
+
+# Windows junk
+Thumbs.db
+Desktop.ini

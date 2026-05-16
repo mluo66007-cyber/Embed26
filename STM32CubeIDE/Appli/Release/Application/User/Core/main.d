@@ -44,7 +44,32 @@ Application/User/Core/main.o: ../Application/User/Core/main.c \
  D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_tim_ex.h \
  D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_uart.h \
  D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_uart_ex.h \
- D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_xspi.h
+ D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_xspi.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Drivers/BSP/LED/led.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Drivers/BSP/BEEP/beep.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Drivers/BSP/KEY/key.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Drivers/BSP/UART/uart.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Drivers/BSP/RGBLCD/rgblcd.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Drivers/BSP/SD_NAND/sd_nand.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Drivers/BSP/SD_CARD/sd_card.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Drivers/BSP/IMX335/imx335.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Drivers/BSP/AP3216C/ap3216c.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/MALLOC/malloc.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/FATFS/FatFs/source/ff.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Application/User/FatFs/ffconf.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/FATFS/exfuns/exfuns.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/FATFS/exfuns/../FatFs/source/ff.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/PICTURE/bmp.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/PICTURE/piclib.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Drivers/BSP/./RGBLCD/rgblcd.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/FATFS/./exfuns/exfuns.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/MALLOC/malloc.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/PICTURE/bmp.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/PICTURE/gif.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/FATFS/FatFs/source/ff.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/PICTURE/tjpgd.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/PICTURE/tjpgdcnf.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Drivers/BSP/ADC/adc.h
 ../../../Appli/Core/Inc/main.h:
 D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal.h:
 ../../../Appli/Core/Inc/stm32n6xx_hal_conf.h:
@@ -91,3 +116,28 @@ D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n
 D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_uart.h:
 D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_uart_ex.h:
 D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_xspi.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Drivers/BSP/LED/led.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Drivers/BSP/BEEP/beep.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Drivers/BSP/KEY/key.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Drivers/BSP/UART/uart.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Drivers/BSP/RGBLCD/rgblcd.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Drivers/BSP/SD_NAND/sd_nand.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Drivers/BSP/SD_CARD/sd_card.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Drivers/BSP/IMX335/imx335.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Drivers/BSP/AP3216C/ap3216c.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/MALLOC/malloc.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/FATFS/FatFs/source/ff.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Application/User/FatFs/ffconf.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/FATFS/exfuns/exfuns.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/FATFS/exfuns/../FatFs/source/ff.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/PICTURE/bmp.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/PICTURE/piclib.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Drivers/BSP/./RGBLCD/rgblcd.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/FATFS/./exfuns/exfuns.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/MALLOC/malloc.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/PICTURE/bmp.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/PICTURE/gif.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/FATFS/FatFs/source/ff.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/PICTURE/tjpgd.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/PICTURE/tjpgdcnf.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Drivers/BSP/ADC/adc.h:
