@@ -23,6 +23,7 @@ Application/User/Core/main.o: ../Application/User/Core/main.c \
  D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_rif.h \
  D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_dma.h \
  D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_dma_ex.h \
+ D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_cacheaxi.h \
  D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_cortex.h \
  D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_adc.h \
  D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_ll_adc.h \
@@ -69,7 +70,33 @@ Application/User/Core/main.o: ../Application/User/Core/main.c \
  D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/FATFS/FatFs/source/ff.h \
  D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/PICTURE/tjpgd.h \
  D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/PICTURE/tjpgdcnf.h \
- D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Drivers/BSP/ADC/adc.h
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Drivers/BSP/ADC/adc.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/stai_network.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton_config.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton_stai_internal.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton_rt_user_api.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton_NN_interface.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton_config.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton_attributes.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton_cipher.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton_util.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton_caches_interface.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton_osal.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton_platform.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/Devices/STM32N6xx/ATON.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/Devices/STM32N6xx/ATON-idxs.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton_rcompat.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/Devices/STM32N6xx/mcu_cache.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/Devices/STM32N6xx/npu_cache.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/stai_aton_common.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Inc/stai.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Inc/stai_debug.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Inc/stai.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/stai_aton_common.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton_lib.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton_lib_sw_operators.h \
+ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton_lib.h
 ../../../Appli/Core/Inc/main.h:
 D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal.h:
 ../../../Appli/Core/Inc/stm32n6xx_hal_conf.h:
@@ -94,6 +121,7 @@ D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n
 D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_rif.h:
 D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_dma.h:
 D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_dma_ex.h:
+D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_cacheaxi.h:
 D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_cortex.h:
 D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_adc.h:
 D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_ll_adc.h:
@@ -141,3 +169,29 @@ D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/FATFS/FatFs/source/
 D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/PICTURE/tjpgd.h:
 D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/PICTURE/tjpgdcnf.h:
 D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Drivers/BSP/ADC/adc.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/stai_network.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton_config.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton_stai_internal.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton_rt_user_api.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton_NN_interface.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton_config.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton_attributes.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton_cipher.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton_util.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton_caches_interface.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton_osal.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton_platform.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/Devices/STM32N6xx/ATON.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/Devices/STM32N6xx/ATON-idxs.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton_rcompat.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/Devices/STM32N6xx/mcu_cache.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/Devices/STM32N6xx/npu_cache.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/stai_aton_common.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Inc/stai.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Inc/stai_debug.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Inc/stai.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/stai_aton_common.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton_lib.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton_lib_sw_operators.h:
+D:/modify_project/Projects/gr/STM32CubeIDE/Appli/Middlewares/AI/Npu/ll_aton/ll_aton_lib.h:

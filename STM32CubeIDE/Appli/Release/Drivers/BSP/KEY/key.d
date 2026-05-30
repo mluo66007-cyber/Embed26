@@ -23,6 +23,7 @@ Drivers/BSP/KEY/key.o: ../Drivers/BSP/KEY/key.c ../Drivers/BSP/KEY/key.h \
  D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_rif.h \
  D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_dma.h \
  D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_dma_ex.h \
+ D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_cacheaxi.h \
  D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_cortex.h \
  D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_adc.h \
  D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_ll_adc.h \
@@ -70,6 +71,7 @@ D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n
 D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_rif.h:
 D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_dma.h:
 D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_dma_ex.h:
+D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_cacheaxi.h:
 D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_cortex.h:
 D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_hal_adc.h:
 D:/modify_project/STM32Cube_FW_N6_V1.0.0/Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_ll_adc.h:

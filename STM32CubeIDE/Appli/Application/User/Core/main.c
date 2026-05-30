@@ -50,8 +50,11 @@
 #include "PICTURE/bmp.h"
 #include "PICTURE/piclib.h"
 #include "ADC/adc.h"
+#include "stai_network.h"
+#include "ll_aton_lib.h"
 
 #include <stdio.h>
+#include <string.h>
 
 /* USER CODE END Includes */
 
@@ -200,6 +203,154 @@ void PeriphCommonClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+#define AI_INPUT_SIZE   (320U * 320U * 3U)
+#define YOLO_NUM        2100U
+
+typedef struct
+{
+    int best_i;
+    float x;
+    float y;
+    float w;
+    float h;
+    float conf;
+    float height_ratio;
+    int plant_status;
+} ai_plant_result_t;
+
+static uint8_t g_ai_net_ctx[STAI_NETWORK_CONTEXT_SIZE] __attribute__((aligned(STAI_NETWORK_CONTEXT_ALIGNMENT)));
+static stai_network *g_ai_net = (stai_network *)g_ai_net_ctx;
+static uint8_t g_ai_runtime_inited = 0;
+static uint8_t g_ai_inited = 0;
+
+static void AI_ParseYoloOutput(float *out, ai_plant_result_t *res)
+{
+    res->best_i = -1;
+    res->conf = -999.0f;
+    res->x = 0.0f;
+    res->y = 0.0f;
+    res->w = 0.0f;
+    res->h = 0.0f;
+    res->height_ratio = 0.0f;
+    res->plant_status = 0;
+
+    for (uint32_t i = 0; i < YOLO_NUM; i++)
+    {
+        float conf = out[4U * YOLO_NUM + i];
+
+        if (conf > res->conf)
+        {
+            res->conf = conf;
+            res->best_i = (int)i;
+        }
+    }
+
+    if (res->best_i >= 0)
+    {
+        int i = res->best_i;
+
+        res->x = out[0U * YOLO_NUM + i];
+        res->y = out[1U * YOLO_NUM + i];
+        res->w = out[2U * YOLO_NUM + i];
+        res->h = out[3U * YOLO_NUM + i];
+        res->height_ratio = res->h / 320.0f;
+
+        if (res->conf < 0.30f)
+        {
+            res->plant_status = 0;   /* NONE */
+        }
+        else if (res->height_ratio < 0.35f)
+        {
+            res->plant_status = 1;   /* EARLY */
+        }
+        else if (res->height_ratio < 0.65f)
+        {
+            res->plant_status = 2;   /* GROWING */
+        }
+        else
+        {
+            res->plant_status = 3;   /* TALL */
+        }
+    }
+}
+
+static int AI_Test_RunOnce(void)
+{
+    stai_return_code ret;
+    stai_ptr inputs[1] = {0};
+    stai_ptr outputs[1] = {0};
+    stai_size n_inputs = 1;
+    stai_size n_outputs = 1;
+    ai_plant_result_t r;
+
+    if (!g_ai_runtime_inited)
+    {
+        ret = stai_runtime_init();
+
+        if (ret != 0)
+        {
+            return -5;
+        }
+
+        g_ai_runtime_inited = 1;
+    }
+
+    if (!g_ai_inited)
+    {
+    	ret = stai_network_init(g_ai_net);
+
+        if (ret != 0)
+        {
+            return -1;
+        }
+
+        g_ai_inited = 1;
+    }
+
+    ret = stai_network_get_inputs(g_ai_net, inputs, &n_inputs);
+
+    if (ret != 0 || n_inputs < 1 || inputs[0] == NULL)
+    {
+        return -2;
+    }
+
+    ret = stai_network_get_outputs(g_ai_net, outputs, &n_outputs);
+
+    if (ret != 0 || n_outputs < 1 || outputs[0] == NULL)
+    {
+        return -3;
+    }
+
+    /*
+     * Gray image input.
+     * This only tests whether runtime/NPU/external Flash can run.
+     * It is not expected to detect a tomato plant.
+     */
+    uintptr_t input_phys = (uintptr_t)inputs[0];
+    uint8_t *input_cpu = (uint8_t *)ATON_LIB_PHYSICAL_TO_VIRTUAL_ADDR(input_phys);
+
+    memset(input_cpu, 128, AI_INPUT_SIZE);
+
+    LL_ATON_Cache_MCU_Clean_Range((uintptr_t)input_cpu, AI_INPUT_SIZE);
+
+    printf("[AI] run start\r\n");
+
+    ret = stai_network_run(g_ai_net, STAI_MODE_SYNC);
+
+    printf("[AI] run done ret=%d\r\n", (int)ret);
+
+    if (ret != 0)
+    {
+        return -4;
+    }
+
+    AI_ParseYoloOutput((float *)outputs[0], &r);
+
+    printf("[AI] best=%d conf=%.3f x=%.1f y=%.1f w=%.1f h=%.1f ratio=%.3f status=%d\r\n",
+           r.best_i, r.conf, r.x, r.y, r.w, r.h, r.height_ratio, r.plant_status);
+
+    return 0;
+}
 
 static void lcd_clear_simple(uint16_t color)
 {
@@ -951,6 +1102,8 @@ int main(void)
 
   imx335_start_capture((uint32_t)g_ltdc_lcd_framebuf);
 
+  (void)AI_Test_RunOnce();
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -1080,13 +1233,6 @@ int main(void)
         fan_update_by_air(eco2_ppm, co2_valid, temp_c_x100, temp_valid, &fan_state);
         pump_update_by_moisture(moisture_percent, &pump_state);
         shade_update_by_als(als, &shade_state);
-
-        printf("IR:%u raw  PS:%u raw  ALS:%u lux  Moisture:%u%% raw:%lu  Temp:%d.%02d C  eCO2:%u ppm  TVOC:%u ppb  Fan:%s  Pump:%s  Shade:%s\r\n",
-               ir, ps, als, moisture_percent, (unsigned long)moisture_raw,
-               temp_c_x100 / 100,
-               (temp_c_x100 < 0 ? -(temp_c_x100 % 100) : (temp_c_x100 % 100)),
-               eco2_ppm, tvoc_ppb,
-               fan_state_text(fan_state), pump_state_text(pump_state), shade_state_text(shade_state));
 
         if (display_mode == 1)
         {
@@ -1470,6 +1616,10 @@ static void MX_LTDC_Init(void)
 
   HAL_RIF_RIMC_ConfigMasterAttributes(RIF_MASTER_INDEX_SDMMC2, &RIMC_master);
 
+#if defined(RIF_MASTER_INDEX_NPU)
+  HAL_RIF_RIMC_ConfigMasterAttributes(RIF_MASTER_INDEX_NPU, &RIMC_master);
+#endif
+
   /*RISUP configuration*/
   HAL_RIF_RISC_SetSlaveSecureAttributes(RIF_RISC_PERIPH_INDEX_SDMMC1 , RIF_ATTRIBUTE_SEC | RIF_ATTRIBUTE_PRIV);
   HAL_RIF_RISC_SetSlaveSecureAttributes(RIF_RISC_PERIPH_INDEX_SDMMC2 , RIF_ATTRIBUTE_SEC | RIF_ATTRIBUTE_PRIV);
@@ -1477,8 +1627,57 @@ static void MX_LTDC_Init(void)
   HAL_RIF_RISC_SetSlaveSecureAttributes(RIF_RISC_PERIPH_INDEX_DCMIPP , RIF_ATTRIBUTE_SEC | RIF_ATTRIBUTE_PRIV);
   HAL_RIF_RISC_SetSlaveSecureAttributes(RIF_RISC_PERIPH_INDEX_DMA2D , RIF_ATTRIBUTE_SEC | RIF_ATTRIBUTE_PRIV);
   HAL_RIF_RISC_SetSlaveSecureAttributes(RIF_RISC_PERIPH_INDEX_LTDCL1 , RIF_ATTRIBUTE_SEC | RIF_ATTRIBUTE_PRIV);
+#if defined(RIF_RISC_PERIPH_INDEX_NPU)
+  HAL_RIF_RISC_SetSlaveSecureAttributes(RIF_RISC_PERIPH_INDEX_NPU , RIF_ATTRIBUTE_SEC | RIF_ATTRIBUTE_PRIV);
+#endif
+#if defined(RIF_RCC_PERIPH_INDEX_CACHEAXIRAM)
+  HAL_RIF_RISC_SetSlaveSecureAttributes(RIF_RCC_PERIPH_INDEX_CACHEAXIRAM , RIF_ATTRIBUTE_SEC | RIF_ATTRIBUTE_PRIV);
+#endif
+#if defined(RIF_RCC_PERIPH_INDEX_CACHECONFIG)
+  HAL_RIF_RISC_SetSlaveSecureAttributes(RIF_RCC_PERIPH_INDEX_CACHECONFIG , RIF_ATTRIBUTE_SEC | RIF_ATTRIBUTE_PRIV);
+#endif
+#if defined(RIF_RCC_PERIPH_INDEX_RAMCFG)
+  HAL_RIF_RISC_SetSlaveSecureAttributes(RIF_RCC_PERIPH_INDEX_RAMCFG , RIF_ATTRIBUTE_SEC | RIF_ATTRIBUTE_PRIV);
+#endif
+#if defined(RIF_RCC_PERIPH_INDEX_NPURAM0)
+  HAL_RIF_RISC_SetSlaveSecureAttributes(RIF_RCC_PERIPH_INDEX_NPURAM0 , RIF_ATTRIBUTE_SEC | RIF_ATTRIBUTE_PRIV);
+  HAL_RIF_RISC_SetSlaveSecureAttributes(RIF_RCC_PERIPH_INDEX_NPURAM1 , RIF_ATTRIBUTE_SEC | RIF_ATTRIBUTE_PRIV);
+  HAL_RIF_RISC_SetSlaveSecureAttributes(RIF_RCC_PERIPH_INDEX_NPURAM2 , RIF_ATTRIBUTE_SEC | RIF_ATTRIBUTE_PRIV);
+  HAL_RIF_RISC_SetSlaveSecureAttributes(RIF_RCC_PERIPH_INDEX_NPURAM3 , RIF_ATTRIBUTE_SEC | RIF_ATTRIBUTE_PRIV);
+#endif
 
   /* RIF-Aware IPs Config */
+
+  /* ST Edge AI uses AXISRAM2..6 for activations and SW fallback tensors. */
+#if defined(RIF_RCC_PERIPH_INDEX_AXISRAM1)
+  HAL_RIF_RISC_SetSlaveSecureAttributes(RIF_RCC_PERIPH_INDEX_AXISRAM1 , RIF_ATTRIBUTE_SEC | RIF_ATTRIBUTE_PRIV);
+#endif
+#if defined(RIF_RCC_PERIPH_INDEX_AXISRAM2)
+  HAL_RIF_RISC_SetSlaveSecureAttributes(RIF_RCC_PERIPH_INDEX_AXISRAM2 , RIF_ATTRIBUTE_SEC | RIF_ATTRIBUTE_PRIV);
+#endif
+#if defined(__HAL_RCC_AXISRAM1_MEM_CLK_ENABLE)
+  __HAL_RCC_AXISRAM1_MEM_CLK_ENABLE();
+  __HAL_RCC_AXISRAM2_MEM_CLK_ENABLE();
+  __HAL_RCC_AXISRAM3_MEM_CLK_ENABLE();
+  __HAL_RCC_AXISRAM4_MEM_CLK_ENABLE();
+  __HAL_RCC_AXISRAM5_MEM_CLK_ENABLE();
+  __HAL_RCC_AXISRAM6_MEM_CLK_ENABLE();
+#endif
+#if defined(__HAL_RCC_RAMCFG_CLK_ENABLE)
+  __HAL_RCC_RAMCFG_CLK_ENABLE();
+#endif
+#if defined(RAMCFG_SRAM2_AXI) && defined(RAMCFG_AXISRAM_POWERDOWN)
+  CLEAR_BIT(RAMCFG_SRAM2_AXI->CR, RAMCFG_AXISRAM_POWERDOWN);
+#endif
+#if defined(__HAL_RCC_NPU_CLK_ENABLE)
+  __HAL_RCC_NPU_CLK_ENABLE();
+#endif
+#if defined(__HAL_RCC_CACHEAXI_CLK_ENABLE)
+  __HAL_RCC_CACHEAXI_CLK_ENABLE();
+#endif
+#if defined(__HAL_RCC_CACHEAXIRAM_MEM_CLK_ENABLE)
+  __HAL_RCC_CACHEAXIRAM_MEM_CLK_ENABLE();
+#endif
 
   /* set up PWR configuration */
   HAL_PWR_ConfigAttributes(PWR_ITEM_0,PWR_SEC_NPRIV);

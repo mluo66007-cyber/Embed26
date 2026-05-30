@@ -42,6 +42,9 @@ Drivers/BSP/SYS \
 Drivers/BSP/UART \
 Drivers/CMSIS \
 Drivers/STM32N6xx_HAL_Driver \
+Middlewares/AI/Npu/Devices/STM32N6xx \
+Middlewares/AI/Npu/ll_aton \
+Middlewares/AI \
 Middlewares/FATFS/FatFs/source \
 Middlewares/FATFS/exfuns \
 Middlewares/MALLOC \

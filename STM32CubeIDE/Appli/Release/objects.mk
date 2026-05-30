@@ -5,5 +5,5 @@
 
 USER_OBJS :=
 
-LIBS := -ln6-evision-awb_gcc -ln6-evision-st-ae_gcc
+LIBS := -ln6-evision-awb_gcc -l:NetworkRuntime1000_CM55_GCC.a -ln6-evision-st-ae_gcc
 

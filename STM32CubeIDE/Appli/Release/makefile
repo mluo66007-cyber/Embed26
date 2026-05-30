@@ -14,6 +14,9 @@ RM := rm -rf
 -include Middlewares/MALLOC/subdir.mk
 -include Middlewares/FATFS/exfuns/subdir.mk
 -include Middlewares/FATFS/FatFs/source/subdir.mk
+-include Middlewares/AI/Npu/ll_aton/subdir.mk
+-include Middlewares/AI/Npu/Devices/STM32N6xx/subdir.mk
+-include Middlewares/AI/subdir.mk
 -include Drivers/STM32N6xx_HAL_Driver/subdir.mk
 -include Drivers/CMSIS/subdir.mk
 -include Drivers/BSP/UART/subdir.mk
@@ -87,7 +90,7 @@ main-build: gr_Appli.elf secondary-outputs
 
 # Tool invocations
 gr_Appli.elf gr_Appli.map: $(OBJS) $(USER_OBJS) D:\modify_project\Projects\gr\STM32CubeIDE\Appli\STM32N647X0HXQ_ROMxspi2_RAMxspi1.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "gr_Appli.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m55 -T"D:\modify_project\Projects\gr\STM32CubeIDE\Appli\STM32N647X0HXQ_ROMxspi2_RAMxspi1.ld" --specs=nosys.specs -Wl,-Map="gr_Appli.map" -Wl,--gc-sections -static -Wl,--cmse-implib -Wl,--out-implib=./secure_nsclib.o -L"D:\modify_project\Projects\gr\STM32CubeIDE\Appli\Middlewares\STM32_MW_ISP\evision\Lib" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+	arm-none-eabi-gcc -o "gr_Appli.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m55 -T"D:\modify_project\Projects\gr\STM32CubeIDE\Appli\STM32N647X0HXQ_ROMxspi2_RAMxspi1.ld" --specs=nosys.specs -Wl,-Map="gr_Appli.map" -Wl,--gc-sections -static -Wl,--cmse-implib -Wl,--out-implib=./secure_nsclib.o -L"D:\modify_project\Projects\gr\STM32CubeIDE\Appli\Middlewares\STM32_MW_ISP\evision\Lib" -L"D:\modify_project\Projects\gr\STM32CubeIDE\Appli\Middlewares\AI\Lib\GCC\ARMCortexM55" -u _printf_float --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
